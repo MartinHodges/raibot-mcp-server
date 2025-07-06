@@ -1,0 +1,76 @@
+.env
+data
+node_modules
+build
+logs
+
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.npm/
+.yarn/
+.cache/
+.eslintcache
+.nyc_output/
+coverage/
+lcov-report/
+.next/ # For Next.js projects
+dist/ # Common output directory for compiled TypeScript
+build/ # Another common output directory for compiled TypeScript
+*.tsbuildinfo # TypeScript build info file for incremental compilation
+
+# Environment Variables
+.env
+.env.*
+!.env.example # Keep example for team collaboration
+
+# Logs
+logs/
+*.log
+
+# Editor/IDE Specific
+.vscode/ # VS Code settings (if not shared)
+.idea/   # IntelliJ/WebStorm project files
+*.sublime-project
+*.sublime-workspace
+.DS_Store # macOS specific
+Thumbs.db # Windows specific
+
+# OS generated files
+.classpath
+.project
+.settings/
+
+# Test/Linting
+*.ts.snap # Jest snapshot files
+.jest/cache/
+*.js.snap # Jest snapshot files (if you have JS tests too)
+
+# Compiled JavaScript (if not handled by dist/ or build/)
+*.js
+*.js.map
+!src/**/*.js # Exclude .js files from src if you have mixed JS/TS
+!src/**/*.js.map # Same for source maps
+
+# Temporary/Backup Files
+*~
+#*#
+.#*
+.nfs*
+*.bak
+*.swp
+*.swo
+
+# Docker
+.dockerignore
+Dockerfile.bak
+
+# Dependencies (if vendoring specific ones)
+vendor/
+
+# Other potential files/directories
+.gitkeep # Often used to keep empty directories in Git, but usually deleted later
