@@ -68,9 +68,8 @@ export async function readHistory(): Promise<EventsData> {
 // Validates and writes the given location data to location.json
 export async function appendToHistory(step: EventData): Promise<void> {
     try {
-        const history = await readHistory()
-        history.concat(step)
-
+        let history = await readHistory()
+        history = history.concat(step)
         // Ensure the data to be written conforms to the schema
         EventsSchema.parse(history)
         const dataString = JSON.stringify(history, null, 2)
