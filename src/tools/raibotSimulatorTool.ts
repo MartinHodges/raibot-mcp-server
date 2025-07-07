@@ -6,7 +6,7 @@ import { createEmptyMap, writeCell } from "../resources/mapResource.js"
 import { appendToHistory, EventData } from "../resources/raibotHistoryResource.js"
 
 const GRID = 
-  "++X++" + // row 1
+  "++X++" + // row 1 (this is classed as the lowest row, ie you cannot move down from here)
   "+++++" + // row 2
   "+++++" + // row 3
   "+++++" + // row 4
@@ -35,10 +35,10 @@ function move(location: LocationData, deltaX: number, deltaY: number): LocationD
     throw(new Error("Cannot move right, already at the right edge"))
   }
   if (newY < 1) {
-    throw(new Error("Cannot move down, already at the top edge"))
+    throw(new Error("Cannot move down, already at the bottom edge"))
   }
   if (newY > 5) {
-    throw(new Error("Cannot move up, already at the bottom edge"))
+    throw(new Error("Cannot move up, already at the top edge"))
   }
   const newLocation: LocationData = { x: newX, y: newY }
   return newLocation
@@ -97,11 +97,11 @@ export default function registerSimulatorTool(server: McpServer) {
                 break
               case 'up':
                 logger.debug("Raibot moving up")
-                location = move(location, 0, -1)
+                location = move(location, 0, 1)
                 break
               case 'down':
                 logger.debug("Raibot moving down")
-                location = move(location, 0, 1)
+                location = move(location, 0, -1)
                 break
               default:
                 event.toX = location.x
